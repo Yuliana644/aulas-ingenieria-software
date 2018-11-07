@@ -3,13 +3,13 @@ import { Observable, of } from 'rxjs'; // only need to import from rxjs
 import { catchError, tap } from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'application/json' })};
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestfullService {
-  private tipdocUrl: string = 'https://swapi.co/api/people/1/';
+  private tipdocUrl: string = 'http://localhost:3000/cursos';
 
   constructor (public http: HttpClient) {  }
 

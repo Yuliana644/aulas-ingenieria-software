@@ -1,7 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>Estos son los registros de la tabla {{title}}</div> 
- {{tipodoc.name}}
-<div *ngFor="let i of tipodoc.films">
-    {{i}}
+<div *ngFor="let item of tipodoc">
+    {{item.id_curso}} {{item.nombre_curso}}
 </div> 
-

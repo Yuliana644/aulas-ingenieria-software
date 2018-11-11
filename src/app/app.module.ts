@@ -6,7 +6,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {RestfullService} from './services/restfull.service' 
 import { RestfullComponent } from './services/restfull/restfull.component';
-
+// animations
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//material
+import {MaterialModule} from './material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,9 @@ import { RestfullComponent } from './services/restfull/restfull.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
     AppComponent,

@@ -1,5 +1,5 @@
 //obtenemos el modelo TipDocModel con toda la funcionalidad
-var EstModel = require('../modelo/estmodel');
+var NotasModel = require('../modelo/notasmodel');
 var express = require('express');
 //var router = express.Router();
 var router = express.Router();
@@ -15,7 +15,7 @@ module.exports = function ()
     {
 
         //res.json(200,"LOL");
-        EstModel.getStudents(function (error, data)
+        EstModel.getNotas(function (error, data)
         {
             res.status(200).json(data);
         });
@@ -32,7 +32,7 @@ module.exports = function ()
         //solo actualizamos si la id es un número
         if (!isNaN(id))
         {
-            EstModel.getStudent(id, function (error, data)
+            EstModel.getNotas(id, function (error, data)
             {
                 //si el tipo de documento existe lo mostramos en formato json
                 if (typeof data !== 'undefined' && data.length > 0)
@@ -60,14 +60,15 @@ module.exports = function ()
         //creamos un objeto con los datos del tipo de documento
         var reqData =
             {
-                id: req.body.pers_estudiante,
-                nombre: req.body.nombre_contacto_emer,
-                num: req.body.numero_contacto_emer,
+                id: req.body.id_notas,
+                nota: req.body.nota,
+                estud: req.body.id_estudiante_nota,
+                tema: req.body.id_tema_nota,
             };
 
 
         //usamos la funcion para insertar
-        EstModel.insertEst(reqData, function (error, data)
+        NotaModel.insertNota(reqData, function (error, data)
         {
             //si el tipo de documento se ha insertado correctamente mostramos su info
             if (data.msg=="success")
@@ -91,11 +92,12 @@ module.exports = function ()
         var reqData =
         {
             id: req.body.pers_estudiante,
-            nombre: req.body.nombre_contacto_emer,
-            num: req.body.numero_contacto_emer,
+            nota: req.body.nota,
+            estud: req.body.id_estudiante_nota,
+            tema: req.body.id_tema_nota,
         };
         //usamos la funcion para actualizar
-        EstModel.updateEst(reqData, function (error, data)
+        NotaModel.updateNota(reqData, function (error, data)
         {
             //si el tipo de documeto se ha actualizado correctamente mostramos un mensaje
             if (data.msg=="success")

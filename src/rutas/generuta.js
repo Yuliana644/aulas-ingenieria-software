@@ -15,7 +15,7 @@ module.exports = function ()
     {
 
         //res.json(200,"LOL");
-        EstModel.getStudents(function (error, data)
+        EstModel.getGeneros(function (error, data)
         {
             res.status(200).json(data);
         });
@@ -32,7 +32,7 @@ module.exports = function ()
         //solo actualizamos si la id es un número
         if (!isNaN(id))
         {
-            EstModel.getStudent(id, function (error, data)
+            EstModel.getGeneros(id, function (error, data)
             {
                 //si el tipo de documento existe lo mostramos en formato json
                 if (typeof data !== 'undefined' && data.length > 0)
@@ -60,14 +60,14 @@ module.exports = function ()
         //creamos un objeto con los datos del tipo de documento
         var reqData =
             {
-                id: req.body.pers_estudiante,
-                nombre: req.body.nombre_contacto_emer,
-                num: req.body.numero_contacto_emer,
+                //id: req.body.pers_estudiante,
+                descgen: req.body.descrip_genero,
+                //num: req.body.numero_contacto_emer,
             };
 
 
         //usamos la funcion para insertar
-        EstModel.insertEst(reqData, function (error, data)
+        EstModel.insertGen(reqData, function (error, data)
         {
             //si el tipo de documento se ha insertado correctamente mostramos su info
             if (data.msg=="success")
@@ -90,12 +90,12 @@ module.exports = function ()
         //almacenamos los datos de la petición en un objeto
         var reqData =
         {
-            id: req.body.pers_estudiante,
-            nombre: req.body.nombre_contacto_emer,
-            num: req.body.numero_contacto_emer,
+            id: req.body.id_genero,
+            descgen: req.body.descrip_genero,
+            //num: req.body.numero_contacto_emer,
         };
         //usamos la funcion para actualizar
-        EstModel.updateEst(reqData, function (error, data)
+        EstModel.updateGen(reqData, function (error, data)
         {
             //si el tipo de documeto se ha actualizado correctamente mostramos un mensaje
             if (data.msg=="success")

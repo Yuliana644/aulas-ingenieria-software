@@ -6,19 +6,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {RestfullService} from './services/restfull.service' 
 import { RestfullComponent } from './services/restfull/restfull.component';
-import {HelloWorld} from './iniciocomponente/inicio.component';
 // animations
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //material
 import {MaterialModule} from './material';
 import { from } from 'rxjs';
-import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { LoginComponent } from './components/login/login.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
     RestfullComponent,
-    HelloWorld,
-    InicioSesionComponent
+    LoginComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

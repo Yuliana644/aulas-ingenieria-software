@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+      <span>Aulas Virtuales</span>
+      <span class="example-spacer"></span>
+               
+      <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="example-icon">list</mat-icon>Cursos</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Angular</button>
+        <button mat-menu-item>Legislacion</button>
+          
+     </mat-menu>
+     <button mat-raised-button color="green">Iniciar sesion</button> 
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,37 +1,37 @@
+import { LayoutModule } from '@angular/cdk/layout';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule,
-  MatInputModule,
-  MatRadioModule,
-  MatSelectModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule,
 } from '@angular/material';
 
-import { LoginComponent } from './login.component';
+import { AvnavbarComponent } from './avnavbar.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('AvnavbarComponent', () => {
+  let component: AvnavbarComponent;
+  let fixture: ComponentFixture<AvnavbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [AvnavbarComponent],
       imports: [
         NoopAnimationsModule,
-        ReactiveFormsModule,
+        LayoutModule,
         MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatRadioModule,
-        MatSelectModule,
+        MatIconModule,
+        MatListModule,
+        MatSidenavModule,
+        MatToolbarModule,
       ]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(AvnavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

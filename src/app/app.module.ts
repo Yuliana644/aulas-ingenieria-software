@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {RestfullService} from './services/restfull.service' 
@@ -13,12 +13,16 @@ import {MaterialModule} from './material';
 import { from } from 'rxjs';
 import { LoginComponent } from './components/login/login.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AvnavbarComponent } from './components/avnavbar/avnavbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule, MatSelectModule, MatRadioModule, MatCardModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
     RestfullComponent,
     LoginComponent,
-    SidenavComponent
+    SidenavComponent,
+    AvnavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,18 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [
     AppComponent,

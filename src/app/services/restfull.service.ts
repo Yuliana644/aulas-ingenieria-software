@@ -10,6 +10,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 })
 export class RestfullService {
   private tipdocUrl: string = 'http://localhost:3000/cursos';
+  private indexCursosUrl: string = 'http://localhost:3000/cursos';
 
   constructor (public http: HttpClient) {  }
 
@@ -17,5 +18,10 @@ export class RestfullService {
   {
      return this.http.get(this.tipdocUrl,httpOptions);
     //return this.http.get(this.tipodocsUrl + "tipdocmodel", httpOptions);
+  }
+
+  getCursos(): Observable<any> 
+  {
+     return this.http.get(this.indexCursosUrl,httpOptions);
   }
 }

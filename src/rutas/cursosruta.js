@@ -1,5 +1,5 @@
 //obtenemos el modelo TipDocModel con toda la funcionalidad
-var EstModel = require('../modelo/estmodel');
+var cursosModel = require('../modelo/cursosmodel');
 var express = require('express');
 //var router = express.Router();
 var router = express.Router();
@@ -15,7 +15,7 @@ module.exports = function ()
     {
 
         //res.json(200,"LOL");
-        EstModel.getStudents(function (error, data)
+        cursosModel.getCursos(function (error, data)
         {
             res.status(200).json(data);
         });
@@ -32,7 +32,7 @@ module.exports = function ()
         //solo actualizamos si la id es un número
         if (!isNaN(id))
         {
-            EstModel.getStudent(id, function (error, data)
+            cursosModel.getStudent(id, function (error, data)
             {
                 //si el tipo de documento existe lo mostramos en formato json
                 if (typeof data !== 'undefined' && data.length > 0)
@@ -67,7 +67,7 @@ module.exports = function ()
 
 
         //usamos la funcion para insertar
-        EstModel.insertEst(reqData, function (error, data)
+        cursosModel.insertEst(reqData, function (error, data)
         {
             //si el tipo de documento se ha insertado correctamente mostramos su info
             if (data.msg=="success")
@@ -95,7 +95,7 @@ module.exports = function ()
             num: req.body.numero_contacto_emer,
         };
         //usamos la funcion para actualizar
-        EstModel.updateEst(reqData, function (error, data)
+        cursosModel.updateEst(reqData, function (error, data)
         {
             //si el tipo de documeto se ha actualizado correctamente mostramos un mensaje
             if (data.msg=="success")

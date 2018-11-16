@@ -2,6 +2,7 @@ var express = require('express');//guarda express que nosotros intalamos
 //var cookieParser = require('cookie-parser');//trabajar las galletas
 var bodyParser = require('body-parser'), port = 3000;//rmanejo de cuerpo de la "pagina" y puerto
 var tipdoc = require('./src/rutas/tipdocruta');//rutaExaminar
+var cursos = require('./src/rutas/cursosruta');//rutaExaminar
 var estudiantes = require('./src/rutas/estruta');//ruta
 var personas = require('./src/rutas/persoruta');//ruta yulia
 var generos=require('./src/rutas/generuta');//Ruta generos
@@ -45,7 +46,7 @@ app.use(function (req, res, next)
 
 
 app.use('/estudiantes', estudiantes());//ruta para el servicio
-app.use('/cursos', tipdoc());//ruta para el servicio
+app.use('/cursos', cursos());//ruta para el servicio
 app.use('/personas', personas());//ruta para el servicio /yuliana
 app.use('/generos', generos());
 app.use('/notas',notas());

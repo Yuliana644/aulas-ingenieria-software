@@ -11,13 +11,13 @@ const cn = {
 const db = pgp(cn);
 
 //creamos un objeto para ir almacenandotodo lo que necesitemos
-var estudiantes = {};
+var cursos = {};
 
 //---------------------------------------------------------------
 //obtenemos todos los tipos de documento
-estudiantes.getStudents = function (callback) 
+cursos.getCursos = function (callback) 
 {
-    db.query("SELECT $1:name FROM $2:name", ['*', 'estudiantes'])
+    db.query("SELECT $1:name FROM $2:name", ['*', 'cursos'])
     .then(function (data) {
         callback(null , data)
     })
@@ -29,7 +29,7 @@ estudiantes.getStudents = function (callback)
 
 //---------------------------------------------------------------
 //obtenemos un tipo doc por su id
-estudiantes.getStudent = function (id, callback) 
+cursos.getStudent = function (id, callback) 
 {
     db.query("SELECT $1:name FROM $2:name WHERE pers_estudiante = "+id, ['*', 'estudiantes'])
     .then(function (data) {
@@ -42,7 +42,7 @@ estudiantes.getStudent = function (id, callback)
 
 //---------------------------------------------------------------
 //añadir un nuevo tipo de documento
-estudiantes.insertEst = function (reqData, callback) 
+cursos.insertEst = function (reqData, callback) 
 {
     db.none("INSERT INTO estudiantes(pers_estudiante, nombre_contacto_emer, numero_contacto_emer) VALUES(${id}, ${nombre}, ${num})", reqData)
     .then(function (data) {
@@ -55,7 +55,7 @@ estudiantes.insertEst = function (reqData, callback)
 
 //---------------------------------------------------------------
 //actualizar un tipo de documento
-estudiantes.updateEst = function (reqData, callback)
+cursos.updateEst = function (reqData, callback)
  {
     db.none("UPDATE estudiantes SET nombre_contacto_emer=${nombre}, numero_contacto_emer=${num} WHERE pers_estudiante = ${id}", reqData)
     .then(function (data) {
@@ -68,4 +68,4 @@ estudiantes.updateEst = function (reqData, callback)
 
 //---------------------------------------------------------------
 //exportamos el objeto para tenerlo disponible en la zona de rutas
-module.exports = estudiantes;
+module.exports = cursos;

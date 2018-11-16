@@ -1,35 +1,12 @@
-<mat-sidenav-container class="sidenav-container">
-  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
-  </mat-sidenav> -->
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Aulas Virtuales</span>
-      <span class="example-spacer"></span>
-      <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="example-icon">list</mat-icon>Cursos</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Angular</button>
-        <button mat-menu-item>Legislacion</button>
-          
-     </mat-menu>
-     <button mat-raised-button color="green">Iniciar sesion</button> 
-    </mat-toolbar>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper  light-blue darken-4">
+      <a routerLink="" class="brand-logo">
+        <img src="../../../assets/img/Young_software_solo.png" width="50" alt="" class="logo">
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a routerLink="login">login</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

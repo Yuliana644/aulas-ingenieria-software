@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -8,20 +8,35 @@ import {RestfullService} from './services/restfull.service'
 import { RestfullComponent } from './services/restfull/restfull.component';
 // animations
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//material
-import {MaterialModule} from './material';
+//router
+import { RouterModule,Routes} from '@angular/router';
+
 import { from } from 'rxjs';
+import {InicioComponent} from './pages/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AvnavbarComponent } from './components/avnavbar/avnavbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule, MatSelectModule, MatRadioModule, MatCardModule } from '@angular/material';
+
+const appRoutes: Routes = [{
+  path: '',
+  pathMatch :'prefix', 
+  redirectTo: 'inicio'
+  }, {
+  path: 'inicio',
+  component: InicioComponent
+  }, {
+    path:'login',
+    component: LoginComponent
+  }]
+
 @NgModule({
   declarations: [
     AppComponent,
     RestfullComponent,
     LoginComponent,
     SidenavComponent,
+    InicioComponent,
     AvnavbarComponent
   ],
   imports: [
@@ -30,18 +45,11 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatInputModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot( 
+      appRoutes,
+      {enableTracing: true}
+    )
   ],
   providers: [
     AppComponent,

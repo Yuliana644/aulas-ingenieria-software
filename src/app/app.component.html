@@ -1,17 +1,3 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <avnavbar></avnavbar>
-<!-- <avsidenav> </avsidenav> -->
-<avlogin></avlogin>
-
-<!--insertar botones -->
-
-
-<div>Estos son los registros de la tabla {{title}}</div> 
-<div *ngFor="let item of tipodoc">
-    {{item.id_curso}} {{item.nombre_curso}}
-</div> 
-
-<!--insertar link 
-<mat-icon class="example-icon"><a href="url"
-    terget="_blank"></a>aqui nombre icono</mat-icon>
--->
+<router-outlet></router-outlet>  

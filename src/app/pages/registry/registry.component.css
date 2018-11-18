@@ -1,0 +1,9 @@
+.vh-100{
+  height: calc(100vh - 64px);
+}
+
+.error-validate{
+  position: absolute;
+  color: red;
+  font-size: 11px;
+}

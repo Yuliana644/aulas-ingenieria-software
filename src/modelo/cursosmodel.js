@@ -29,9 +29,9 @@ cursos.getCursos = function (callback)
 
 //---------------------------------------------------------------
 //obtenemos un tipo doc por su id
-cursos.getStudent = function (id, callback) 
+cursos.getCurso = function (id, callback) 
 {
-    db.query("SELECT $1:name FROM $2:name WHERE pers_estudiante = "+id, ['*', 'estudiantes'])
+    db.query("SELECT $1:name FROM $2:name WHERE id_curso = "+id, ['*', 'cursos'])
     .then(function (data) {
         callback(null , data)
     })

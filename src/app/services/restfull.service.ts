@@ -24,4 +24,9 @@ export class RestfullService {
   {
      return this.http.get(this.indexCursosUrl,httpOptions);
   }
+
+  getCurso(id): Observable<any> 
+  {
+     return this.http.get(this.indexCursosUrl+'/'+id,httpOptions);
+  }
 }

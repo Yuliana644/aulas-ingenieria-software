@@ -4,16 +4,21 @@
 
       <div class="row mt-5" >
         <div class="col s12 m6" *ngFor="let curso of cursos">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">{{ curso.nombre_curso }}</span>
+
+          <div class="card sticky-action">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{ curso.img_curso }}">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">{{ curso.nombre_curso }}</span>
               <p>{{ curso.descripcion_curso }}</p>
             </div>
             <div class="card-action">
-              <a href="#">ver</a>
-              <a href="#">matricular</a>
+                <a routerLink="/cursos/{{curso.id_curso}}" class="black-text">Ver temas</a>
+                <a href="#" class="black-text">Matriculate ahora</a>
             </div>
           </div>
+          
         </div>
       </div>
 

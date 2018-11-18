@@ -32,7 +32,7 @@ module.exports = function ()
         //solo actualizamos si la id es un número
         if (!isNaN(id))
         {
-            cursosModel.getStudent(id, function (error, data)
+            cursosModel.getCurso(id, function (error, data)
             {
                 //si el tipo de documento existe lo mostramos en formato json
                 if (typeof data !== 'undefined' && data.length > 0)

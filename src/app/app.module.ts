@@ -13,22 +13,40 @@ import { RouterModule,Routes} from '@angular/router';
 
 import { from } from 'rxjs';
 import {InicioComponent} from './pages/inicio/inicio.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AvnavbarComponent } from './components/avnavbar/avnavbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { RegistryComponent } from './pages/registry/registry.component';
+import { CoursesComponent } from './pages/courses/index/courses.component';
+import { CoursesShowComponent } from './pages/courses/show/courses-show.component';
 
-const appRoutes: Routes = [{
-  path: '',
-  pathMatch :'prefix', 
-  redirectTo: 'inicio'
-  }, {
+const appRoutes: Routes = [
+  {
+    path: '',
+    pathMatch :'prefix', 
+    redirectTo: 'inicio'
+  },
+  {
   path: 'inicio',
   component: InicioComponent
-  }, {
+  },
+  {
     path:'login',
     component: LoginComponent
-  }]
+  },
+  {
+    path:'registro',
+    component: RegistryComponent
+  },
+  {
+    path:'cursos',
+    children: [
+      { path: '', component: CoursesComponent },
+      { path: ':id', component: CoursesShowComponent }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
@@ -37,7 +55,10 @@ const appRoutes: Routes = [{
     LoginComponent,
     SidenavComponent,
     InicioComponent,
-    AvnavbarComponent
+    AvnavbarComponent,
+    RegistryComponent,
+    CoursesComponent,
+    CoursesShowComponent
   ],
   imports: [
     BrowserModule,

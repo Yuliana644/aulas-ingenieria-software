@@ -27,26 +27,29 @@
             </div>
           </div>
           <div class="input-field col s6">
-            <input id="sec_lname" type="text" class="validate">
-            <label for="sec_lname">Segundo apellido</label>
+            <input id="firstsec_lname" type="text" class="validate" formControlName="segundoApellido">
+            <label for="firstsec_lname">Segundo apellido</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s4">
-              <select formControlName="tipodoc">
-                  <option value="" disabled selected>Seleccione</option>
-                  <option *ngFor="let t of tipodoc" [value]="t.abbrev">
-                    {{ t.name }}
-                  </option>
-                </select>
-                <label>Tipo documento</label>
+              <select formControlName="sltipodoc">
+                <option value="" selected>Seleccione</option>
+                <option *ngFor="let t of tipodoc" [value]="t.id_tipdoc">
+                  {{ t.descripcion_tipdoc }}
+                </option>
+              </select>
+              <label>Tipo documento</label>
+              <div *ngIf="submitted && f.sltipodoc.errors" class="invalid-feedback">
+                <div *ngIf="f.sltipodoc.errors.required" class="error-validate">Tipo de documento requerido</div>
+              </div>
           </div>
           <div class="input-field col s4">
-            <input id="numdoc" type="number" class="validate">
+            <input id="numdoc" type="number" class="validate" formControlName="numdoc">
             <label for="numdoc">Numero de documento</label>
           </div>
           <div class="input-field col s4">
-            <input id="date" type="text" class="datepicker">
+            <input id="date" type="text" class="datepicker" formControlName="dateBirth">
             <label for="date">Fecha de nacimiento</label>
           </div>
         </div>
@@ -76,21 +79,26 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-              <select materialize="material_select">
-                  <option value="" disabled selected>Seleccione</option>
-                  <option value="1">M</option>
-                  <option value="2">F</option>
-                </select>
-                <label>Genero</label>
+            <select formControlName="sltipogen">
+              <option value="" disabled selected>Seleccione</option>
+              <option *ngFor="let t of tipogen" [value]="t.id_tipdoc">
+                {{ t.descripcion_tipdoc }}
+              </option>
+            </select>
+            <label>Genero</label>
           </div>
           <div class="input-field col s6">
-            <input id="direccion" type="number" class="validate">
+            <input id="direccion" type="text" class="validate" formControlName="address">
             <label for="direccion">Dirección</label>
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+              <div *ngIf="f.address.errors.required" class="error-validate">Contraseña requerido</div>
+              <div *ngIf="f.passwordConf.errors.minlenght" class="error-validate">Minimo 8 caracteres</div>
+            </div>
           </div>
         </div>
         <div class="row center-align">
           <div class="col s12">
-              <button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Registrar
+              <button class="btn light-blue darken-4" type="submit" name="action">Registrar
                   <i class="material-icons right">send</i>
               </button>
           </div>

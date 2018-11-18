@@ -17,7 +17,7 @@ var TipDocModel = {};
 //obtenemos todos los tipos de documento
 TipDocModel.getTipDocs = function (callback) 
 {
-    db.query("SELECT $1:name FROM $2:name", ['*', 'cursos'])
+    db.query("SELECT $1:name FROM $2:name", ['*', 'tipos_documentos'])
     .then(function (data) {
         callback(null , data)
     })

@@ -1,5 +1,6 @@
 //obtenemos el modelo TipDocModel con toda la funcionalidad
 var EstModel = require('../modelo/estmodel');
+var PersonModel = require('../modelo/persomodel');
 var express = require('express');
 //var router = express.Router();
 var router = express.Router();
@@ -60,14 +61,24 @@ module.exports = function ()
         //creamos un objeto con los datos del tipo de documento
         var reqData =
             {
-                id: req.body.pers_estudiante,
-                nombre: req.body.nombre_contacto_emer,
-                num: req.body.numero_contacto_emer,
+                tipdoc_pers: req.body.sltipodoc,
+                num_doc_pers: req.body.numdoc,
+                nom1_pers: req.body.primerNombre,
+                nom2_pers: req.body.segNombre,
+                apll1_pers: req.body.primerApellido,
+                apll2_pers: req.body.segundoApellido,
+                fec_nac_pers: req.body.dateBirth,
+                genero_pers: req.body.sltipogen,
+                correo_pers: req.body.email,
+                direccion_pers: req.body.address,
+                id_tipdoc: req.body.sltipodoc,
+                id_genero: req.body.sltipogen,
+                password: req.body.password,
             };
 
 
         //usamos la funcion para insertar
-        EstModel.insertEst(reqData, function (error, data)
+        PersonModel.insertPer(reqData, function (error, data)
         {
             //si el tipo de documento se ha insertado correctamente mostramos su info
             if (data.msg=="success")

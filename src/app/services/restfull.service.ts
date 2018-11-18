@@ -9,12 +9,13 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
   providedIn: 'root'
 })
 export class RestfullService {
-  private tipdocUrl: string = 'http://localhost:3000/cursos';
+  private tipdocUrl: string = 'http://localhost:3000/tipodoc';
   private indexCursosUrl: string = 'http://localhost:3000/cursos';
+  private personUrl: string = 'http://localhost:3000/personas'
 
   constructor (public http: HttpClient) {  }
 
-  getTipDoc(): Observable<any> 
+  getTipDocs(): Observable<any> 
   {
      return this.http.get(this.tipdocUrl,httpOptions);
     //return this.http.get(this.tipodocsUrl + "tipdocmodel", httpOptions);
@@ -28,5 +29,10 @@ export class RestfullService {
   getCurso(id): Observable<any> 
   {
      return this.http.get(this.indexCursosUrl+'/'+id,httpOptions);
+  }
+
+  savePerson(person): Observable<any>
+  {
+    return this.http.post(this.personUrl,person,httpOptions)
   }
 }

@@ -50,6 +50,7 @@ app.use('/cursos', cursos());//ruta para el servicio
 app.use('/personas', personas());//ruta para el servicio /yuliana
 app.use('/generos', generos());
 app.use('/notas',notas());
+app.use('/tipodoc',tipdoc());
 //app.use('/documentos',Conectar())
 
 

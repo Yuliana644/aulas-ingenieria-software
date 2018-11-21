@@ -45,7 +45,7 @@ persona.getStudent = function (id, callback)
 persona.insertPer = function (reqData, callback) 
 {
     console.log(reqData)
-    db.none("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccion_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password)", reqData)
+    db.one("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccio_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password})", reqData)
     .then(function (data) {
         callback(null , {"msg": "success"})
     })

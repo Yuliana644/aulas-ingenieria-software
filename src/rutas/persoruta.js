@@ -61,19 +61,19 @@ module.exports = function ()
         //creamos un objeto con los datos del tipo de documento
         var reqData =
             {
-                tipdoc_pers: req.body.sltipodoc,
+                tipdoc_pers: parseInt(req.body.sltipodoc),
                 num_doc_pers: req.body.numdoc,
                 nom1_pers: req.body.primerNombre,
                 nom2_pers: req.body.segNombre,
                 apll1_pers: req.body.primerApellido,
                 apll2_pers: req.body.segundoApellido,
                 fec_nac_pers: req.body.dateBirth,
-                genero_pers: req.body.sltipogen,
+                genero_pers: parseInt(req.body.sltipogen),
                 correo_pers: req.body.email,
                 direccion_pers: req.body.address,
-                id_tipdoc: req.body.sltipodoc,
-                id_genero: req.body.sltipogen,
-                password: req.body.password,
+                id_tipdoc:  parseInt(req.body.sltipodoc),
+                id_genero:  parseInt(req.body.sltipogen),
+                password:  parseInt(req.body.password),
             };
 
 

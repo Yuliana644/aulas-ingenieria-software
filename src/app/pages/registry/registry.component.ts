@@ -84,7 +84,14 @@ export class RegistryComponent implements OnInit {
   ngAfterViewInit() {
     M.updateTextFields();
     let date = document.querySelectorAll('.datepicker');
-    M.Datepicker.init(date, {});
+    M.Datepicker.init(date, {
+      'format': 'yyyy-mm-dd',
+      'firstDay': 1,
+      months: [
+        'Enero',
+        'Febrero'
+      ]
+    });
     let sl = document.querySelectorAll('select');
     M.FormSelect.init(sl, {});
   }

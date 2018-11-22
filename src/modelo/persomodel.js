@@ -44,14 +44,39 @@ persona.getStudent = function (id, callback)
 //añadir un nuevo tipo de documento
 persona.insertPer = function (reqData, callback)
 {
-    console.log(reqData)
-    db.query("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccio_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password})", reqData)
-    .then(function (data) {
-        callback(null , {"msg": "success"})
-    })
-    .catch(function (error) {
-        console.log("ERROR:", error);
-    });
+    // db.one("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccio_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password}) RETURNING id_persona", reqData)
+    // .then(function (data) {
+    //   console.log(data)
+    //   db.none("INSERT INTO estudiantes(pers_estudiante) VALUES(${id_persona}", data)
+    //   .then(function (data) {
+    //       callback(null , {"msg": "success"})
+    //   })
+    //   .catch(function (error) {
+    //       console.log("ERROR:", error);
+    //   });
+
+    // })
+    // .catch(function (error) {
+    //     console.log("ERROR:", error);
+    // });
+
+    db.tx('my-transaction', t => {
+      // t.ctx = transaction context object
+
+      return t.one("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccio_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password}) RETURNING id_persona", reqData)
+          .then(user => {
+              console.log(user)
+              return t.batch([
+                  t.none('INSERT INTO estudiantes(pers_estudiante) VALUES($1)', [user.id_persona]),
+              ]);
+          });
+  })
+  .then(data => {
+    callback(null , {"msg": "success"})
+  })
+  .catch(error => {
+    console.log("ERROR:", error);
+  });
 }
 
 //---------------------------------------------------------------

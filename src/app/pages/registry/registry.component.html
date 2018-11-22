@@ -34,7 +34,7 @@
         <div class="row">
           <div class="input-field col s4">
               <select formControlName="sltipodoc">
-                <option value="" selected>Seleccione</option>
+                <option value="null" selected>Seleccione</option>
                 <option *ngFor="let t of tipodoc" [value]="t.id_tipdoc">
                   {{ t.descripcion_tipdoc }}
                 </option>
@@ -80,7 +80,7 @@
         <div class="row">
           <div class="input-field col s6">
             <select formControlName="sltipogen">
-              <option value="" disabled selected>Seleccione</option>
+              <option value="null" disabled selected>Seleccione</option>
               <option *ngFor="let t of tipogen" [value]="t.id_tipdoc">
                 {{ t.descripcion_tipdoc }}
               </option>
@@ -106,4 +106,3 @@
       </form>
     </div>
 </div>
-        

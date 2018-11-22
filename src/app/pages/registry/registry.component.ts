@@ -14,47 +14,47 @@ export class RegistryComponent implements OnInit {
   tipogen:any[];
   constructor(private formBuilder: FormBuilder, public restfullservice: RestfullService) {
     this.restfullservice.getTipDocs().subscribe(
-      result => 
+      result =>
       {
           //console.log("CODE",result.code)
-          if (result.code != 200) 
+          if (result.code != 200)
           {
             this.tipodoc = result;
             setTimeout(()=>{
               let sl = document.querySelectorAll('select');
               M.FormSelect.init(sl, {});
             }, 500)
-          } 
-          else 
+          }
+          else
           {
               console.log("asd")
               this.tipodoc = result.data;
           }
       },
-      error => 
+      error =>
       {
           console.log(<any>error);
       }
     );
     this.restfullservice.getTipDocs().subscribe(
-      result => 
+      result =>
       {
           //console.log("CODE",result.code)
-          if (result.code != 200) 
+          if (result.code != 200)
           {
             this.tipogen = result;
             setTimeout(()=>{
               let sl = document.querySelectorAll('select');
               M.FormSelect.init(sl, {});
             }, 500)
-          } 
-          else 
+          }
+          else
           {
               console.log("asd")
               this.tipodoc = result.data;
           }
       },
-      error => 
+      error =>
       {
           console.log(<any>error);
       }
@@ -78,7 +78,7 @@ export class RegistryComponent implements OnInit {
     });
 
     this.formBuilder.group
-    
+
   }
 
   ngAfterViewInit() {
@@ -111,24 +111,14 @@ export class RegistryComponent implements OnInit {
     console.log(person)
 
     this.restfullservice.savePerson(person).subscribe(
-      result => 
+      result =>
       {
-          //console.log("CODE",result.code)
-          if (result.code != 200) 
-          {
-            this.tipogen = result;
-            setTimeout(()=>{
-              let sl = document.querySelectorAll('select');
-              M.FormSelect.init(sl, {});
-            }, 500)
-          } 
-          else 
-          {
-              console.log("asd")
-              this.tipodoc = result.data;
-          }
+        if(result.status == 200){
+          console.log(result.msg)
+
+        }
       },
-      error => 
+      error =>
       {
           console.log(<any>error);
       }

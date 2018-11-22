@@ -81,10 +81,12 @@ module.exports = function ()
         PersonModel.insertPer(reqData, function (error, data)
         {
             //si el tipo de documento se ha insertado correctamente mostramos su info
-            if (data.msg=="success")
+            if (data.msg === "success")
             {
                 // res.redirect("/documentos/" + data.insertId);
-                res.json(200, { "msg": "Saved SUCCESS" });
+                // res.json(200, { "msg": "Saved SUCCESS" });
+                console.log('hola')
+                res.status(200).json({status:200, msg: "Saved SUCCESS" });
             }
             else
             {

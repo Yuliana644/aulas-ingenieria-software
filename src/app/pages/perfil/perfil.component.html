@@ -1,0 +1,113 @@
+<p>
+  perfil works!
+</p>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col s12">
+      <h3>
+       Perfil
+      </h3>
+    </div>
+      <form class="col s12" (ngSubmit)="onSubmit()" [formGroup]="formRegistro">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" class="validate" formControlName="primerNombre">
+            <label for="first_name">Perfil estudiante</label>
+            <div *ngIf="submitted && f.primerNombre.errors" class="invalid-feedback">
+              <div *ngIf="f.primerNombre.errors.required" class="error-validate">Primer nombre requerido</div>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <input id="sec_name" type="text" class="validate" formControlName="segNombre">
+            <label for="sec_name">Segundo nombre</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_lname" type="text" class="validate" formControlName="primerApellido">
+            <label for="first_lname">Primer apellido</label>
+            <div *ngIf="submitted && f.primerApellido.errors" class="invalid-feedback">
+              <div *ngIf="f.primerApellido.errors.required" class="error-validate">Primer apellido requerido</div>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <input id="firstsec_lname" type="text" class="validate" formControlName="segundoApellido">
+            <label for="firstsec_lname">Segundo apellido</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+              <select formControlName="sltipodoc">
+                <option value="" selected>Seleccione</option>
+                <option *ngFor="let t of tipodoc" [value]="t.id_tipdoc">
+                  {{ t.descripcion_tipdoc }}
+                </option>
+              </select>
+              <label>Tipo documento</label>
+              <div *ngIf="submitted && f.sltipodoc.errors" class="invalid-feedback">
+                <div *ngIf="f.sltipodoc.errors.required" class="error-validate">Tipo de documento requerido</div>
+              </div>
+          </div>
+          <div class="input-field col s4">
+            <input id="numdoc" type="number" class="validate" formControlName="numdoc">
+            <label for="numdoc">Numero de documento</label>
+          </div>
+          <div class="input-field col s4">
+            <input id="date" type="text" class="datepicker" formControlName="dateBirth">
+            <label for="date">Fecha de nacimiento</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <input id="email" type="email" class="validate" formControlName="email">
+            <label for="email">Email</label>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required" class="error-validate">Email requerido</div>
+            </div>
+          </div>
+          <div class="input-field col s4">
+            <input id="password" type="password" class="validate" formControlName="password">
+            <label for="password">Password</label>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required" class="error-validate">Contraseña requerido</div>
+            </div>
+          </div>
+          <div class="input-field col s4">
+            <input id="passwordconf" type="password" class="validate" formControlName="passwordConf">
+            <label for="passwordconf">Password</label>
+            <div *ngIf="submitted && f.passwordConf.errors" class="invalid-feedback">
+              <div *ngIf="f.passwordConf.errors.required" class="error-validate">Contraseña requerido</div>
+              <div *ngIf="f.passwordConf.errors.minlenght" class="error-validate">Minimo 8 caracteres</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <select formControlName="sltipogen">
+              <option value="" disabled selected>Seleccione</option>
+              <option *ngFor="let t of tipogen" [value]="t.id_tipdoc">
+                {{ t.descripcion_tipdoc }}
+              </option>
+            </select>
+            <label>Genero</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="direccion" type="text" class="validate" formControlName="address">
+            <label for="direccion">Dirección</label>
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+              <div *ngIf="f.address.errors.required" class="error-validate">Contraseña requerido</div>
+              <div *ngIf="f.passwordConf.errors.minlenght" class="error-validate">Minimo 8 caracteres</div>
+            </div>
+          </div>
+        </div>
+        <div class="row center-align">
+          <div class="col s12">
+              <button class="btn light-blue darken-4" type="submit" name="action">Registrar
+                  <i class="material-icons right">send</i>
+              </button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
+        

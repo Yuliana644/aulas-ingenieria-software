@@ -25,6 +25,7 @@ import { ModificarcursosComponent } from './pages/modificarcursos/modificarcurso
 import { CrearprofesoresComponent } from './pages/crearprofesores/crearprofesores.component';
 import { InformespopularidadComponent } from './pages/informespopularidad/informespopularidad.component';
 import { ListadoestudiantesComponent } from './pages/listadoestudiantes/listadoestudiantes.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 const appRoutes: Routes = [
   {
@@ -65,19 +66,17 @@ const appRoutes: Routes = [
     component: ModificarcursosComponent
   },
   {
+    path:'perfil',
+    component: PerfilComponent
+  },
+  {
     path:'cursos',
     children: [
       { path: '', component: CoursesComponent },
       { path: ':id', component: CoursesShowComponent }
     ]
   },
-  {
-    path:'perfil',
-    children: [
-      { path: '', component: CoursesComponent },
-      { path: ':id', component: CoursesShowComponent }
-    ]
-  }
+ 
 ]
 
 @NgModule({
@@ -95,7 +94,8 @@ const appRoutes: Routes = [
     ModificarcursosComponent,
     CrearprofesoresComponent,
     InformespopularidadComponent,
-    ListadoestudiantesComponent
+    ListadoestudiantesComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

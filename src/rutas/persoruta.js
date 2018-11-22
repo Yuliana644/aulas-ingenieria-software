@@ -95,7 +95,7 @@ module.exports = function ()
 
     //---------------------------------------------------------------
     //función que usa el verbo  put para actualizar usuarios
-    //Muestra y captura los datos para el método CRUL update (actualizar) 
+    //Muestra y captura los datos para el método CRUL update (actualizar)
     router.put("/", function (req, res)
     {
         //almacenamos los datos de la petición en un objeto

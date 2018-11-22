@@ -15,7 +15,7 @@ var persona = {};
 
 //---------------------------------------------------------------
 //obtenemos todos los tipos de documento
-persona.getStudents = function (callback) 
+persona.getStudents = function (callback)
 {
     db.query("SELECT $1:name FROM $2:name", ['*', 'estudiantes'])
     .then(function (data) {
@@ -29,7 +29,7 @@ persona.getStudents = function (callback)
 
 //---------------------------------------------------------------
 //obtenemos un tipo doc por su id
-persona.getStudent = function (id, callback) 
+persona.getStudent = function (id, callback)
 {
     db.query("SELECT $1:name FROM $2:name WHERE pers_estudiante = "+id, ['*', 'estudiantes'])
     .then(function (data) {
@@ -42,10 +42,10 @@ persona.getStudent = function (id, callback)
 
 //---------------------------------------------------------------
 //añadir un nuevo tipo de documento
-persona.insertPer = function (reqData, callback) 
+persona.insertPer = function (reqData, callback)
 {
     console.log(reqData)
-    db.one("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccio_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password})", reqData)
+    db.query("INSERT INTO personas(num_doc_pers, nom1_pers, nom2_pers, apll1_pers, apll2_pers, fec_nac_pers, correo_pers, direccio_pers, id_tipdoc, id_genero, password) VALUES(${num_doc_pers}, ${nom1_pers}, ${nom2_pers}, ${apll1_pers}, ${apll2_pers}, ${fec_nac_pers}, ${correo_pers}, ${direccion_pers}, ${id_tipdoc}, ${id_genero}, ${password})", reqData)
     .then(function (data) {
         callback(null , {"msg": "success"})
     })

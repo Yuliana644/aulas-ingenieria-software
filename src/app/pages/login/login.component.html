@@ -1,25 +1,34 @@
 <div class="container">
     <div class="valign-wrapper vh-100">
         <div class="row">
-            <form class="col s8 offset-s2">
-                 <a> Login</a>
-                <div class="row center-align">  
+          <div class="col s12">
+              <h5 class="center-align">
+                Login
+              </h5>
+          </div>
+            <form class="col s8 offset-s2" (ngSubmit)="onSubmit()" [formGroup]="formLogin">
+                <div class="row center-align">
                     <div class="input-field col s8 offset-s2">
-                        <input  type="email" id="email" class="validate" formControlName="email" >
+                        <input  type="email" class="validate" formControlName="loginEmail" >
                         <label for="email">Email</label>
-                        <span class="helper-text" data-error="upps tienes un error" data-success="ok"></span>
+                        <div *ngIf="submitted && f.loginEmail.errors" class="invalid-feedback">
+                            <div *ngIf="f.loginEmail.errors.required" class="error-validate">Email requerido</div>
+                          </div>
                     </div>
                     <div class="input-field col s8 offset-s2">
-                        <input id="pass" type="password" class="validate">
+                        <input id="pass" type="password" class="validate" formControlName="loginPass">
                         <label for="pass">Contraseña</label>
+                        <div *ngIf="submitted && f.loginPass.errors" class="invalid-feedback">
+                          <div *ngIf="f.loginPass.errors.required" class="error-validate">Password requerido</div>
+                        </div>
                     </div>
                     <div class="col s12">
                         <h1>
                         </h1>
-                        <a routerLink="/registro">Registrate aqui</a>                   
+                        <a routerLink="/registro">Registrate aqui</a>
                     </div>
 
-                    <button class="btn waves-effect waves-light light-blue darken-4" type="submit" name="action">Submit
+                    <button class="btn light-blue darken-4" type="submit" name="action">Submit
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

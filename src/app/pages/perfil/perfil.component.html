@@ -1,7 +1,3 @@
-<p>
-  perfil works!
-</p>
-
 <div class="container">
 
   <div class="row">
@@ -10,11 +6,15 @@
        Perfil
       </h3>
     </div>
-      <form class="col s12" (ngSubmit)="onSubmit()" [formGroup]="formRegistro">
+      <form class="col s12" (ngSubmit)="onSubmit()" [formGroup]="formPerfil">
         <div class="row">
+          <div class="input-field col s2 hide">
+            <input id="first_name" type="hidden" class="validate" formControlName="idPersona">
+            <label for="first_name">Primer nombre</label>
+          </div>
           <div class="input-field col s6">
             <input id="first_name" type="text" class="validate" formControlName="primerNombre">
-            <label for="first_name">Perfil estudiante</label>
+            <label for="first_name">Primer nombre</label>
             <div *ngIf="submitted && f.primerNombre.errors" class="invalid-feedback">
               <div *ngIf="f.primerNombre.errors.required" class="error-validate">Primer nombre requerido</div>
             </div>
@@ -59,30 +59,13 @@
         </div>
         <div class="row">
           <div class="input-field col s4">
-            <input id="email" type="email" class="validate" formControlName="email">
+            <input id="email" type="email" disabled class="validate" formControlName="email">
             <label for="email">Email</label>
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required" class="error-validate">Email requerido</div>
             </div>
           </div>
           <div class="input-field col s4">
-            <input id="password" type="password" class="validate" formControlName="password">
-            <label for="password">Password</label>
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-              <div *ngIf="f.password.errors.required" class="error-validate">Contraseña requerido</div>
-            </div>
-          </div>
-          <div class="input-field col s4">
-            <input id="passwordconf" type="password" class="validate" formControlName="passwordConf">
-            <label for="passwordconf">Password</label>
-            <div *ngIf="submitted && f.passwordConf.errors" class="invalid-feedback">
-              <div *ngIf="f.passwordConf.errors.required" class="error-validate">Contraseña requerido</div>
-              <div *ngIf="f.passwordConf.errors.minlenght" class="error-validate">Minimo 8 caracteres</div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
             <select formControlName="sltipogen">
               <option value="" disabled selected>Seleccione</option>
               <option *ngFor="let t of tipogen" [value]="t.id_tipdoc">
@@ -91,7 +74,7 @@
             </select>
             <label>Genero</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <input id="direccion" type="text" class="validate" formControlName="address">
             <label for="direccion">Dirección</label>
             <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
@@ -102,7 +85,7 @@
         </div>
         <div class="row center-align">
           <div class="col s12">
-              <button class="btn light-blue darken-4" type="submit" name="action">Registrar
+              <button class="btn light-blue darken-4" type="submit" name="action">editar perfil
                   <i class="material-icons right">send</i>
               </button>
           </div>
@@ -110,4 +93,3 @@
       </form>
     </div>
 </div>
-        

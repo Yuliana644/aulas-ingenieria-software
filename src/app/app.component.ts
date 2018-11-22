@@ -7,9 +7,9 @@ import { RestfullService } from './services/restfull.service';
 })
 export class AppComponent {
   public tipodoc:any[];
-  constructor(public restfullservice: RestfullService) 
+  constructor(public restfullservice: RestfullService)
     {
-    }  
-      
+    }
+
     title = 'TipDoc';
 }

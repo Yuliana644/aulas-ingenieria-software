@@ -85,7 +85,6 @@ module.exports = function ()
             {
                 // res.redirect("/documentos/" + data.insertId);
                 // res.json(200, { "msg": "Saved SUCCESS" });
-                console.log('hola')
                 res.status(200).json({status:200, msg: "Saved SUCCESS" });
             }
             else
@@ -102,19 +101,30 @@ module.exports = function ()
     {
         //almacenamos los datos de la petición en un objeto
         var reqData =
-        {
-            id: req.body.pers_estudiante,
-            nombre: req.body.nombre_contacto_emer,
-            num: req.body.numero_contacto_emer,
-        };
+            {
+                id_persona: parseInt(req.body.idPersona),
+                tipdoc_pers: parseInt(req.body.sltipodoc),
+                num_doc_pers: req.body.numdoc,
+                nom1_pers: req.body.primerNombre,
+                nom2_pers: req.body.segNombre,
+                apll1_pers: req.body.primerApellido,
+                apll2_pers: req.body.segundoApellido,
+                fec_nac_pers: req.body.dateBirth,
+                genero_pers: parseInt(req.body.sltipogen),
+                correo_pers: req.body.email,
+                direccio_pers: req.body.address,
+                id_tipdoc:  parseInt(req.body.sltipodoc),
+                id_genero:  parseInt(req.body.sltipogen),
+                password:  parseInt(req.body.password),
+            };
         //usamos la funcion para actualizar
-        EstModel.updateEst(reqData, function (error, data)
+        PersonModel.updatePer(reqData, function (error, data)
         {
             //si el tipo de documeto se ha actualizado correctamente mostramos un mensaje
             if (data.msg=="success")
             {
                 // res.redirect("/documentos/" + data.insertId);
-                res.json(200, { "msg": "Saved SUCCESS" });
+                res.status(200).json({status:200, msg: "Saved SUCCESS" });
             }
             else
             {

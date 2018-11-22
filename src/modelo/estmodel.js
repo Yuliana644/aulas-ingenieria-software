@@ -15,7 +15,7 @@ var estudiantes = {};
 
 //---------------------------------------------------------------
 //obtenemos todos los tipos de documento
-estudiantes.getStudents = function (callback) 
+estudiantes.getStudents = function (callback)
 {
     db.query("SELECT $1:name FROM $2:name", ['*', 'estudiantes'])
     .then(function (data) {
@@ -29,7 +29,7 @@ estudiantes.getStudents = function (callback)
 
 //---------------------------------------------------------------
 //obtenemos un tipo doc por su id
-estudiantes.getStudent = function (id, callback) 
+estudiantes.getStudent = function (id, callback)
 {
     db.query("SELECT $1:name FROM $2:name WHERE pers_estudiante = "+id, ['*', 'estudiantes'])
     .then(function (data) {
@@ -42,7 +42,7 @@ estudiantes.getStudent = function (id, callback)
 
 //---------------------------------------------------------------
 //añadir un nuevo tipo de documento
-estudiantes.insertEst = function (reqData, callback) 
+estudiantes.insertEst = function (reqData, callback)
 {
     db.none("INSERT INTO estudiantes(pers_estudiante, nombre_contacto_emer, numero_contacto_emer) VALUES(${id}, ${nombre}, ${num})", reqData)
     .then(function (data) {

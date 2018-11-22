@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-import {RestfullService} from './services/restfull.service' 
+import {RestfullService} from './services/restfull.service'
 import { RestfullComponent } from './services/restfull/restfull.component';
 // animations
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -30,7 +30,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 const appRoutes: Routes = [
   {
     path: '',
-    pathMatch :'prefix', 
+    pathMatch :'prefix',
     redirectTo: 'inicio'
   },
   {
@@ -76,7 +76,7 @@ const appRoutes: Routes = [
       { path: ':id', component: CoursesShowComponent }
     ]
   },
- 
+
 ]
 
 @NgModule({
@@ -104,7 +104,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot( 
+    RouterModule.forRoot(
       appRoutes,
       {enableTracing: false}
     )
@@ -112,7 +112,7 @@ const appRoutes: Routes = [
   providers: [
     AppComponent,
     RestfullService,
-    
+
   ],
   bootstrap: [AppComponent]
 })

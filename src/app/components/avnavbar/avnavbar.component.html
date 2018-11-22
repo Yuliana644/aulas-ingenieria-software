@@ -5,7 +5,9 @@
         <img src="../../../assets/img/Young_software_solo.png" width="50" alt="" class="logo">
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a routerLink="login">login</a></li>
+        <li *ngIf="!show"><a routerLink="login">login</a></li>
+        <li *ngIf="show"><a routerLink="perfil">perfil</a></li>
+        <li *ngIf="show"><a (click)="logout($event)">logout</a></li>
       </ul>
     </div>
   </nav>

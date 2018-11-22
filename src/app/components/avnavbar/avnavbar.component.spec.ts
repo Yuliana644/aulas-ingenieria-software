@@ -1,13 +1,5 @@
-import { LayoutModule } from '@angular/cdk/layout';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatListModule,
-  MatSidenavModule,
-  MatToolbarModule,
-} from '@angular/material';
 
 import { AvnavbarComponent } from './avnavbar.component';
 
@@ -19,13 +11,7 @@ describe('AvnavbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AvnavbarComponent],
       imports: [
-        NoopAnimationsModule,
-        LayoutModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatSidenavModule,
-        MatToolbarModule,
+        NoopAnimationsModule
       ]
     }).compileComponents();
   }));

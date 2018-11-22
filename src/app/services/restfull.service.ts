@@ -12,21 +12,22 @@ export class RestfullService {
   private tipdocUrl: string = 'http://localhost:3000/tipodoc';
   private indexCursosUrl: string = 'http://localhost:3000/cursos';
   private personUrl: string = 'http://localhost:3000/personas'
+  private loginUrl: string = 'http://localhost:3000/login'
 
   constructor (public http: HttpClient) {  }
 
-  getTipDocs(): Observable<any> 
+  getTipDocs(): Observable<any>
   {
      return this.http.get(this.tipdocUrl,httpOptions);
     //return this.http.get(this.tipodocsUrl + "tipdocmodel", httpOptions);
   }
 
-  getCursos(): Observable<any> 
+  getCursos(): Observable<any>
   {
      return this.http.get(this.indexCursosUrl,httpOptions);
   }
 
-  getCurso(id): Observable<any> 
+  getCurso(id): Observable<any>
   {
      return this.http.get(this.indexCursosUrl+'/'+id,httpOptions);
   }
@@ -34,5 +35,15 @@ export class RestfullService {
   savePerson(person): Observable<any>
   {
     return this.http.post(this.personUrl,person,httpOptions)
+  }
+
+  editPerson(person): Observable<any>
+  {
+    return this.http.put(this.personUrl,person,httpOptions)
+  }
+
+  loginStudent(login): Observable<any>
+  {
+    return this.http.post(this.loginUrl,login,httpOptions)
   }
 }

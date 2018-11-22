@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -8,13 +7,28 @@ import { map } from 'rxjs/operators';
   templateUrl: './avnavbar.component.html',
   styleUrls: ['./avnavbar.component.css'],
 })
-export class AvnavbarComponent {
+export class AvnavbarComponent implements OnInit{
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
+  show = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor() {
+    const user = JSON.parse(window.localStorage.getItem('authUser'))
+    console.log(user)
+    if(user != null){
+      this.show = true;
+    }else{
+      this.show = false;
+    }
+   }
+
+
+  ngOnInit () {
+
+  }
+
+  logout(e: any) {
+    localStorage.removeItem('authUser')
+    this.show = false;
+  }
 
 }

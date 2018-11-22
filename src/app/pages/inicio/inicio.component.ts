@@ -8,27 +8,28 @@ import { RestfullService } from '../../services/restfull.service';
 })
 export class InicioComponent {
   public cursos:any[];
-  constructor(public restfullservice: RestfullService) 
+  txtlogin: 'login'
+  constructor(public restfullservice: RestfullService)
   {
       this.restfullservice.getCursos().subscribe(
-          result => 
+          result =>
           {
               //console.log("CODE",result.code)
-              if (result.code != 200) 
+              if (result.code != 200)
               {
                   this.cursos = result;
-              } 
-              else 
+              }
+              else
               {
                   console.log("asd")
                   this.cursos = result.data;
               }
           },
-          error => 
+          error =>
           {
               console.log(<any>error);
           }
       );
-  }  
+  }
 
 }

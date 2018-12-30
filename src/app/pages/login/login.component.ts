@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RestfullService } from '../../services/restfull.service';
 import { Router } from '@angular/router';
+import * as M from 'materialize-css/dist/js/materialize';
 
 @Component({
   selector: 'avlogin',
@@ -23,6 +24,9 @@ export class LoginComponent implements OnInit{
 
   }
 
+  ngAfterViewInit() {
+    M.updateTextFields();
+  }
 
   get f() { return this.formLogin.controls; }
 
